@@ -106,7 +106,7 @@ update = () => {
             if (player.hp <= 0) {
 
                 var timeSurvived = Date.now() - timeWhenGameStarted
-                console.log('You lost! You survived for ' + timeSurvived + 'miliseconds.');
+                console.log('You lost! You survived for ' + timeSurvived + ' miliseconds.');
                 timeWhenGameStarted = Date.now()
                 player.hp = 100;
                 
