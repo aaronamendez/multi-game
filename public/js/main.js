@@ -18,7 +18,7 @@ const player = {
     hp: 100,
     width: 20,
     height: 20,
-    color: 'green',
+    color: '#2C45E2',
 };
 
 // enemy list
@@ -73,6 +73,19 @@ testCollisionEntity = (entity1, entity2) => {
 document.onmousemove = (mouse) => {
     var mouseX = mouse.clientX - document.getElementById('canvas').getBoundingClientRect().left;
     var mouseY = mouse.clientY - document.getElementById('canvas').getBoundingClientRect().top; 
+
+    if(mouseX < player.width/2){
+        mouseX = player.width/2;
+    }
+    if(mouseX > canvasWidth - player.width/2){
+        mouseX = canvasWidth - player.width/2;
+    }
+    if(mouseY < player.height/2){
+        mouseY = player.height/2;
+    }
+    if(mouseY > canvasHeight){
+        mouseY = canvasHeight;
+    }
 
     player.x = mouseX;
     player.y = mouseY;
@@ -151,13 +164,13 @@ update = () => {
     canvas.fillText(player.hp + "HP", 0, 20)
 };
 
-// create enemies
+// create enemies Enemy(id, x, y, spdX, spdY, name, width, height)
 Enemy('E1', 150, 250, 10, 15, 'E1', 30, 30);
 Enemy('E2', 100, 200, 10, -15, 'E2', 40, 20);
 Enemy('E3', 175, 150, 10, 20, 'E3', 50, 10);
 
 // update interval
-setInterval(update, 20);
+setInterval(update,25);
 
 
 
