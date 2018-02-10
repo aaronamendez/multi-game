@@ -71,8 +71,8 @@ testCollisionEntity = (entity1, entity2) => {
 };
 
 document.onmousemove = (mouse) => {
-    var mouseX = mouse.clientX;
-    var mouseY = mouse.clientY; 
+    var mouseX = mouse.clientX - document.getElementById('canvas').getBoundingClientRect().left;
+    var mouseY = mouse.clientY - document.getElementById('canvas').getBoundingClientRect().top; 
 
     player.x = mouseX;
     player.y = mouseY;
